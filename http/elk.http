@@ -1,0 +1,12 @@
+@elastic_host = http://127.0.0.1:9200
+@apikey = R09OSENvSUJOTHh2bWZaZWhZZUE6d0kwQTMxNnNRdHVIUjZ3REw2YTZpZw==
+
+### 
+
+GET {{elastic_host}}/_cat/indices?v HTTP/1.1
+Authorization: ApiKey {{apikey}}
+
+###
+
+PUT {{elastic_host}}/my-tcp-2022-07 HTTP/1.1
+Authorization: ApiKey {{apikey}}
