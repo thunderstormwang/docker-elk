@@ -1,2 +1,0 @@
-Hello, Filebeat!!
-Hello, Filebeat2!!

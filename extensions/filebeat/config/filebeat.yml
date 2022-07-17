@@ -18,7 +18,9 @@ filebeat.inputs:
 - type: log  
   enabled: true
   paths:
-    - /logs/*.txt
+    - /logs/*.log
+  fields:
+    index_type: order
 
 processors:
   - add_cloud_metadata: ~
