@@ -7,20 +7,20 @@ filebeat.config:
     path: ${path.config}/modules.d/*.yml
     reload.enabled: false
 
-#  filebeat.autodiscover:
-#   providers:
-#     # The Docker autodiscover provider automatically retrieves logs from Docker
-#     # containers as they start and stop.
-#     - type: docker
-#       hints.enabled: true
+filebeat.autodiscover:
+  providers:
+    # The Docker autodiscover provider automatically retrieves logs from Docker
+    # containers as they start and stop.
+    - type: docker
+      hints.enabled: true
 
-filebeat.inputs:
-- type: log  
-  enabled: true
-  paths:
-    - /logs/*.log
-  fields:
-    index_type: order
+# filebeat.inputs:
+# - type: log  
+#   enabled: true
+#   paths:
+#     - /logs/*.log
+#   fields:
+#     index_type: order
 
 processors:
   - add_cloud_metadata: ~
