@@ -14,13 +14,13 @@ filebeat.autodiscover:
     - type: docker
       hints.enabled: true
 
-# filebeat.inputs:
-# - type: log  
-#   enabled: true
-#   paths:
-#     - /logs/*.log
-#   fields:
-#     index_type: order
+filebeat.inputs:
+  - type: log  
+    enabled: true
+    paths:
+      - /logs/*.log
+    fields:
+      index_type: order
 
 processors:
   - add_cloud_metadata: ~
