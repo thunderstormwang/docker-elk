@@ -1,7 +1,9 @@
 @elastic_host = http://127.0.0.1:9200
-@apikey = R09OSENvSUJOTHh2bWZaZWhZZUE6d0kwQTMxNnNRdHVIUjZ3REw2YTZpZw==
+@apikey = 
 
-### 
+###
+
+# 列出所有 index
 
 GET {{elastic_host}}/_cat/indices?v HTTP/1.1
 Authorization: ApiKey {{apikey}}
@@ -9,4 +11,18 @@ Authorization: ApiKey {{apikey}}
 ###
 
 PUT {{elastic_host}}/my-tcp-2022-07 HTTP/1.1
+Authorization: ApiKey {{apikey}}
+
+###
+
+# 列出該 index 底下的資料筆數
+
+GET {{elastic_host}}/product/_count HTTP/1.1
+Authorization: ApiKey {{apikey}}
+
+###
+
+# 列出該 index 底下的資料筆數
+
+GET {{elastic_host}}/product/_settings?pretty HTTP/1.1
 Authorization: ApiKey {{apikey}}
