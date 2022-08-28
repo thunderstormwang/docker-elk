@@ -10,8 +10,19 @@ Authorization: ApiKey {{apikey}}
 
 ###
 
-PUT {{elastic_host}}/my-tcp-2022-07 HTTP/1.1
+# 建立 index
+
+PUT {{elastic_host}}/my-text-202208 HTTP/1.1
 Authorization: ApiKey {{apikey}}
+Content-Type: application/json
+
+{
+  "mappings": {
+    "properties": {
+      "message": { "type": "text" }
+    }
+  }
+}
 
 ###
 
@@ -22,7 +33,35 @@ Authorization: ApiKey {{apikey}}
 
 ###
 
-# 列出該 index 底下的資料筆數
+# 列出該 index 底下的資訊
 
 GET {{elastic_host}}/product/_settings?pretty HTTP/1.1
 Authorization: ApiKey {{apikey}}
+
+###
+
+# 搜尋
+
+GET {{elastic_host}}/my-text-202208/_search HTTP/1.1
+Authorization: ApiKey {{apikey}}
+Content-Type: application/json
+
+{
+  "query": {
+    "match_phrase": {
+      "message": "Hello world"
+    }
+  }
+}
+
+###
+
+# add document
+
+POST {{elastic_host}}/my-text-202208/_doc HTTP/1.1
+Authorization: ApiKey {{apikey}}
+Content-Type: application/json
+
+{
+  "message": "world"
+}
