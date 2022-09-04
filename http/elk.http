@@ -38,6 +38,14 @@ Authorization: ApiKey {{apikey}}
 GET {{elastic_host}}/product/_settings?pretty HTTP/1.1
 Authorization: ApiKey {{apikey}}
 
+
+###
+
+# 列出該 index 的 mapping
+
+GET {{elastic_host}}/my-text-202208/_mapping HTTP/1.1
+Authorization: ApiKey {{apikey}}
+
 ###
 
 # 搜尋
@@ -63,5 +71,5 @@ Authorization: ApiKey {{apikey}}
 Content-Type: application/json
 
 {
-  "message": "world"
+  "message": "Hello dear world"
 }
